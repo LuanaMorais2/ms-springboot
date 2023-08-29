@@ -14,7 +14,7 @@
 	<name>hr-api-gateway-zuul</name>
 	<description>Zuul Server</description>
 
-	
+
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2022.0.4</spring-cloud.version>
@@ -36,6 +36,13 @@
 			<groupId>org.glassfish.jaxb</groupId>
 			<artifactId>jaxb-runtime</artifactId>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-zuul -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+		</dependency>
+
 
 	</dependencies>
 	<dependencyManagement>
