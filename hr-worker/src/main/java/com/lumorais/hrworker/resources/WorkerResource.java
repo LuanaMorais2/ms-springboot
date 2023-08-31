@@ -19,10 +19,10 @@ import java.util.List;
 
 @RefreshScope
 @RestController
-@RequestMapping(value = "/workers")
+@RequestMapping(value= "/workers")
 public class WorkerResource {
 
-    private static final Logger logger = LoggerFactory.getLogger(WorkerResource.class);
+    private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
 
     @Value("${test.config}")
     private String testConfig;
@@ -30,12 +30,10 @@ public class WorkerResource {
     @Autowired
     private Environment env;
 
-
     @Autowired
     private WorkerRepository repository;
 
-
-    @GetMapping(value= "/configs")
+    @GetMapping(value = "/configs")
     public ResponseEntity<Void> getConfigs() {
         logger.info("CONFIG = " + testConfig);
         return ResponseEntity.noContent().build();
@@ -47,22 +45,18 @@ public class WorkerResource {
         return ResponseEntity.ok(list);
     }
 
-
-
     @GetMapping(value = "/{id}")
     public ResponseEntity<Worker> findById(@PathVariable Long id) {
 
-
         try {
-            Thread.sleep(3000l);
+            Thread.sleep(3000L);
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
-        logger.info("PORT= " + env.getProperty("local.server.port"));
+        logger.info("PORT = " + env.getProperty("local.server.port"));
 
         Worker obj = repository.findById(id).get();
-
         return ResponseEntity.ok(obj);
     }
 }
